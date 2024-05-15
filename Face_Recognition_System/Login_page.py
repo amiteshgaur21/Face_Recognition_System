@@ -39,7 +39,7 @@ class Login:
 
         # ================= Background Image ======================
          
-        Login_img = Image.open(r'C:\Users\hp\OneDrive\Desktop\Project\Face_Recognition_System\Images\ph4.png')
+        Login_img = Image.open(r'Face_Recognition_System\Images\ph4.png')
         Login_img = Login_img.resize((w, h), Image.LANCZOS)
         self.Login_photo_img = ImageTk.PhotoImage(Login_img)
         my_label = Label(self.root, image=self.Login_photo_img)
@@ -62,7 +62,7 @@ class Login:
         my_label2 = Label(self.root,text="Email",width=5,height=1,bg='#F5F5DC',fg='#041c3e',font=('Microsoft YaHei',12,"bold"))
         my_label2.place(x=350,y=250)
 
-        Login_img1 = Image.open(r'C:\Users\hp\OneDrive\Desktop\Project\Face_Recognition_System\Images\icons8-email-24.png')
+        Login_img1 = Image.open(r'Face_Recognition_System\Images\icons8-email-24.png')
         Login_img1 = Login_img1.resize((20, 20), Image.LANCZOS)
         self.Login_photo_img1 = ImageTk.PhotoImage(Login_img1)
         my_label3 = Label(self.root, image=self.Login_photo_img1)
@@ -81,14 +81,14 @@ class Login:
         my_label2.place(x=345,y=340)
 
           
-        Login_img2 = Image.open(r'C:\Users\hp\OneDrive\Desktop\Project\Face_Recognition_System\Images\icons8-password-48.png')
+        Login_img2 = Image.open(r'Face_Recognition_System\Images\icons8-password-48.png')
         Login_img2 = Login_img2.resize((25, 25), Image.LANCZOS)
         self.Login_photo_img2 = ImageTk.PhotoImage(Login_img2)
         my_label3 = Label(self.root, image=self.Login_photo_img2)
         my_label3.image=self.Login_photo_img2
         my_label3.place(x=640, y=370, width=25, height=25)
 
-        email= Entry(self.root,width=30,fg='#041c3e',border=0,bg='#F5F5DC',font=('Microsoft YaHei',12),textvariable=self.var_password)
+        email= Entry(self.root,width=30,fg='#041c3e',border=0,bg='#F5F5DC',font=('Microsoft YaHei',12),show='*',textvariable=self.var_password)
         email.place(x=360, y=370)
 
         f1=Frame(self.root,width=311,height=2,bg='#041c3e')
@@ -168,7 +168,7 @@ class Login:
             messagebox.showerror("Error","Please Enter the Password")
         else:
             try:
-                conn=mysql.connector.connect(host="localhost",username="root",password="T#9758@qlph",database="face_recognition")
+                conn=mysql.connector.connect(host="localhost",username="root",password="sHj@6378#jw",database="face_recognition")
                 my_cursor=conn.cursor()
                 my_cursor.execute("select * from register where Email=%s and Password=%s",(self.var_email.get(),self.var_password.get()))
                 row=my_cursor.fetchone()

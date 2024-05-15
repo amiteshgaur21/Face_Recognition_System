@@ -39,7 +39,7 @@ class Face_Recognition:
 
         # =========================== Bg Image ==========================
 
-        img = Image.open(r'C:\Users\hp\OneDrive\Desktop\Project\Face_Recognition_System\Images\44703347.jpg')
+        img = Image.open(r'Face_Recognition_System\Images\44703347.jpg')
         img = img.resize((1385, 750), Image.LANCZOS)
         self.photo_img = ImageTk.PhotoImage(img)
         first_lb = Label(self.root, image=self.photo_img)
@@ -54,7 +54,7 @@ class Face_Recognition:
 
          # =========================== Second Image ==========================
 
-        img1 = Image.open(r'C:\Users\hp\OneDrive\Desktop\Project\Face_Recognition_System\Images\18423154.jpg')
+        img1 = Image.open(r'Face_Recognition_System\Images\18423154.jpg')
         img1= img1.resize((395, 495), Image.LANCZOS)
         self.photo_img1 = ImageTk.PhotoImage(img1)
         first_lb1 = Label(my_frame, image=self.photo_img1)
@@ -71,7 +71,7 @@ class Face_Recognition:
      # ============================================== Attendance =============================================
 
     def mark_attendance(self,i,n,s,r,d):
-        with open("attendance.csv","r+",newline="\n") as f:
+        with open("Face_Recognition_System/attendance.csv","r+",newline="\n") as f:
             myDataList=f.readlines()
             name_list=[]
             for line in myDataList:
@@ -101,7 +101,7 @@ class Face_Recognition:
                 id,predict=clf.predict(gray_image[y:y+h,x:x+w])
                 confidence=int((100*(1-predict/300)))
 
-                conn=mysql.connector.connect(host="localhost",username="root",password="T#9758@qlph",database="face_recognition")
+                conn=mysql.connector.connect(host="localhost",username="root",password="sHj@6378#jw",database="face_recognition")
                 my_cursor=conn.cursor()
 
                 my_cursor.execute("select studentName from student where studentID="+str(id))
@@ -143,14 +143,14 @@ class Face_Recognition:
             return coord
 
         def recognize(img,clf,faceCascade):
-            coord=draw_boundary(img,faceCascade,1.1,10,(255,25,255),"Face",clf)
+            coord = draw_boundary(img,faceCascade,1.1,10,(255,25,255),"Face",clf)
             return img
 
-        faceCascade=cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
+        faceCascade=cv2.CascadeClassifier(r"Face_Recognition_System\haarcascade_frontalface_default.xml")
         clf=cv2.face.LBPHFaceRecognizer_create()
-        clf.read("classifier.xml")
+        clf.read("Face_Recognition_System/classifier.xml")
 
-        video_cap=cv2.VideoCapture(1)
+        video_cap=cv2.VideoCapture(0)
 
         while True:
             ret,img=video_cap.read()

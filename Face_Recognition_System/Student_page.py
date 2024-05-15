@@ -47,7 +47,7 @@ class student:
         
         # =========================== Bg Image ==========================
 
-        bg_img = Image.open(r'C:\Users\hp\OneDrive\Desktop\Project\Face_Recognition_System\Images\GettyImages-1138740533-1.jpg')
+        bg_img = Image.open(r'Face_Recognition_System\Images\GettyImages-1138740533-1.jpg')
         bg_img = bg_img.resize((1500, 750), Image.LANCZOS)
         self.bg_photo = ImageTk.PhotoImage(bg_img)
         my_label = Label(self.root, image=self.bg_photo)
@@ -88,7 +88,7 @@ class student:
 
         # ====================== Left Frame Image ===================
 
-        img_left = Image.open(r'C:\Users\hp\OneDrive\Desktop\Project\Face_Recognition_System\Images\group-of-students-holding-books-and-laptop-university-or-college-students-reading-books-talking-flat-illustration-vector.jpg')
+        img_left = Image.open(r'Face_Recognition_System\Images\group-of-students-holding-books-and-laptop-university-or-college-students-reading-books-talking-flat-illustration-vector.jpg')
         img_left = img_left.resize((635,150), Image.LANCZOS)
         self.photo_img_left = ImageTk.PhotoImage(img_left)
         left_lb = Label(Left_frame, image=self.photo_img_left,bd=2)
@@ -557,7 +557,7 @@ class student:
 
         # ========================= Right Image ======================
 
-        img_right = Image.open(r'C:\Users\hp\OneDrive\Desktop\Project\Face_Recognition_System\Images\imageedit_4_9080682063.jpg')
+        img_right = Image.open(r'Face_Recognition_System\Images\imageedit_4_9080682063.jpg')
         img_right = img_right.resize((660,150), Image.LANCZOS)
         self.photo_img_right = ImageTk.PhotoImage(img_right)
         right_lb = Label(Right_frame, image=self.photo_img_right,bd=2)
@@ -732,7 +732,7 @@ class student:
             messagebox.showerror("Error"," All Fields are Required")
         else :
             try:
-                conn=mysql.connector.connect(host="localhost",username="root",password="T#9758@qlph",database="face_recognition")
+                conn=mysql.connector.connect(host="localhost",username="root",password="sHj@6378#jw",database="face_recognition")
                 my_cursor=conn.cursor()
                 my_cursor.execute("insert into student values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",(
                                                                                                             self.var_dept.get(),
@@ -761,7 +761,7 @@ class student:
 
     # ======================= fetch data =======================================
     def fetch_data(self) :
-        conn=mysql.connector.connect(host="localhost",username="root",password="T#9758@qlph",database="face_recognition")
+        conn=mysql.connector.connect(host="localhost",username="root",password="sHj@6378#jw",database="face_recognition")
         my_cursor=conn.cursor()
         my_cursor.execute("select * from student")
         data=my_cursor.fetchall()
@@ -822,7 +822,7 @@ class student:
             try:
                 Update=messagebox.askyesno("Update","Do you want to update this Student Details",parent=self.root)
                 if Update>0:
-                 conn=mysql.connector.connect(host="localhost",username="root",password="T#9758@qlph",database="face_recognition")
+                 conn=mysql.connector.connect(host="localhost",username="root",password="sHj@6378#jw",database="face_recognition")
                  my_cursor=conn.cursor()
                  my_cursor.execute("update student set dept=%s,course=%s,year=%s,semester=%s,studentName=%s,section=%s,rollno=%s,gender=%s,DOB=%s,email=%s,mobile=%s,address=%s,facultyName=%s,PhotoSample=%s where studentID=%s",(
 
@@ -861,7 +861,7 @@ class student:
             try:
                 Delete=messagebox.askyesno("Delete","Do you want to delete Student Details",parent=self.root)
                 if Delete>0:
-                    conn=mysql.connector.connect(host="localhost",username="root",password="T#9758@qlph",database="face_recognition")
+                    conn=mysql.connector.connect(host="localhost",username="root",password="sHj@6378#jw",database="face_recognition")
                     my_cursor=conn.cursor()
                     sql="delete from student where studentID=%s"
                     val=(self.var_studentID.get(),)
@@ -919,7 +919,7 @@ class student:
             messagebox.showerror("Error"," All Fields are Required")
         else :
             try:
-                conn=mysql.connector.connect(host="localhost",username="root",password="T#9758@qlph",database="face_recognition")
+                conn=mysql.connector.connect(host="localhost",username="root",password="sHj@6378#jw",database="face_recognition")
                 my_cursor=conn.cursor()
                 my_cursor.execute("select * from student")
                 my_result=my_cursor.fetchall()
@@ -950,7 +950,7 @@ class student:
                 self.Reset_data()
                 conn.close()
 
-                face_classifier=cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
+                face_classifier=cv2.CascadeClassifier(r"Face_Recognition_System\haarcascade_frontalface_default.xml")
         
                 def face_scanning(img):     
                     gray=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
@@ -963,15 +963,16 @@ class student:
                         return face_scanning
             
 
-                cap=cv2.VideoCapture(1)
+                cap=cv2.VideoCapture(0)
                 img_id=0
+
                 while True:
                      ret,face_frame=cap.read()
                      if face_scanning(face_frame) is not None:
                        img_id+=1
                        my_face=cv2.resize(face_scanning(face_frame),(450,450))
                        my_face=cv2.cvtColor(my_face,cv2.COLOR_BGR2GRAY)
-                       file_path="data/user."+str(id)+"."+str(img_id)+".jpg"
+                       file_path="Face_Recognition_System/data/user."+str(id)+"."+str(img_id)+".jpg"
 
                        cv2.imwrite(file_path,my_face)
                        cv2.putText(my_face,str(img_id),(50,50),cv2.FONT_HERSHEY_COMPLEX,2,(0,255,0),2)

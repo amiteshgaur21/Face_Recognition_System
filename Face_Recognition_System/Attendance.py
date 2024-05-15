@@ -46,7 +46,7 @@ class attendance:
 
          # =========================== Bg Image ==========================
 
-        bg_img = Image.open(r'C:\Users\hp\OneDrive\Desktop\Project\Face_Recognition_System\Images\GettyImages-1138740533-1.jpg')
+        bg_img = Image.open(r'Face_Recognition_System\Images\GettyImages-1138740533-1.jpg')
         bg_img = bg_img.resize((1500, 750), Image.LANCZOS)
         self.bg_photo = ImageTk.PhotoImage(bg_img)
         my_label = Label(self.root, image=self.bg_photo)
@@ -88,7 +88,7 @@ class attendance:
 
           # ====================== Left Frame Image ===================
 
-        img_left = Image.open(r'C:\Users\hp\OneDrive\Desktop\Project\Face_Recognition_System\Images\group-of-students-holding-books-and-laptop-university-or-college-students-reading-books-talking-flat-illustration-vector.jpg')
+        img_left = Image.open(r'Face_Recognition_System\Images\group-of-students-holding-books-and-laptop-university-or-college-students-reading-books-talking-flat-illustration-vector.jpg')
         img_left = img_left.resize((635,150), Image.LANCZOS)
         self.photo_img_left = ImageTk.PhotoImage(img_left)
         left_lb = Label(Left_frame, image=self.photo_img_left,bd=2)
@@ -297,7 +297,7 @@ class attendance:
                         cursor="hand2",
                         font=('Microsoft YaHei',10,'bold'),
                         width=37,
-                        #command=self.Update_data
+                        command=self.update_csv
                         )
         
         Update_btn.grid(row=0,column=0)
@@ -365,7 +365,7 @@ class attendance:
 
         # ================================================ Right Image =========================================
 
-        img_right = Image.open(r'C:\Users\hp\OneDrive\Desktop\Project\Face_Recognition_System\Images\imageedit_4_9080682063.jpg')
+        img_right = Image.open(r'Face_Recognition_System\Images\imageedit_4_9080682063.jpg')
         img_right = img_right.resize((660,150), Image.LANCZOS)
         self.photo_img_right = ImageTk.PhotoImage(img_right)
         right_lb = Label(Right_frame, image=self.photo_img_right,bd=2)
@@ -493,6 +493,51 @@ class attendance:
         self.var_time.set("")
         self.var_date.set("")
         self.var_attendance.set("-- Select --")
+
+    # ================================= Update data ==================================================
+
+    def update_data(self):
+        self.var_studentID.get()
+        self.var_studentName.get()
+        self.var_section.get()
+        self.var_rollno.get()
+        self.var_dept.get()
+        self.var_time.get()
+        self.var_date.get()
+        self.var_attendance.get()
+
+    # ============================== update csv file ====================================================
+    def update_csv(self):
+         try:
+            # Read CSV data into a list of lists
+            with open('Face_Recognition_System/attendance.csv', 'r', newline='') as csvfile:
+                reader = csv.reader(csvfile)
+                csv_data = list(reader)
+
+            print(len(csv_data))
+            print(csv_data)
+
+            # Validate row and column numbers
+            # if 2 >= len(csv_data) or 7 >= len(csv_data[0]):
+            #     raise IndexError("Invalid row or column number!")
+
+            # Update the specified value
+            csv_data[2][7] = self.var_attendance.get()
+
+            # Write updated data back to the CSV file
+            with open('Face_Recognition_System/attendance.csv', 'w', newline='') as csvfile:
+                writer = csv.writer(csvfile)
+                writer.writerows(csv_data)
+                self.fetchdata(csv_data)
+            
+            # Display success message
+            messagebox.showinfo("Success","Your Data is Updated Successfully !!")
+         except Exception as e:
+              
+              # Display error message
+              messagebox.showerror("Error",f"Due To : {str(e)}",parent=self.root)
+
+
 
 
 

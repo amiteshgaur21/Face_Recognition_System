@@ -35,7 +35,7 @@ class Register:
         
         # ================= Background Image ======================
          
-        img = Image.open(r'C:\Users\hp\OneDrive\Desktop\Project\Face_Recognition_System\Images\ph4.png')
+        img = Image.open(r'Face_Recognition_System\Images\ph4.png')
         img = img.resize((w, h), Image.LANCZOS)
         self.photo_img = ImageTk.PhotoImage(img)
         my_label = Label(self.root, image=self.photo_img)
@@ -56,7 +56,7 @@ class Register:
         my_label2.place(x=210,y=250)
 
         
-        img1 = Image.open(r'C:\Users\hp\OneDrive\Desktop\Project\Face_Recognition_System\Images\icons8-name-50.png')
+        img1 = Image.open(r'Face_Recognition_System\Images\icons8-name-50.png')
         img1 = img1.resize((20, 20), Image.LANCZOS)
         self.photo_img1 = ImageTk.PhotoImage(img1)
         my_label3 = Label(self.root, image=self.photo_img1)
@@ -76,7 +76,7 @@ class Register:
         my_label3 = Label(self.root,text="Last Name",width=10,height=1,bg='#F5F5DC',fg='#041c3e',font=('Microsoft YaHei',12,"bold"))
         my_label3.place(x=510,y=250)
         
-        img2 = Image.open(r'C:\Users\hp\OneDrive\Desktop\Project\Face_Recognition_System\Images\icons8-name-50.png')
+        img2 = Image.open(r'Face_Recognition_System\Images\icons8-name-50.png')
         img2 = img2.resize((20, 20), Image.LANCZOS)
         self.photo_img2 = ImageTk.PhotoImage(img2)
         my_label3 = Label(self.root, image=self.photo_img2)
@@ -95,7 +95,7 @@ class Register:
         my_label4 = Label(self.root,text="Email",width=5,height=1,bg='#F5F5DC',fg='#041c3e',font=('Microsoft YaHei',12,"bold"))
         my_label4.place(x=210,y=340)
         
-        img3 = Image.open(r'C:\Users\hp\OneDrive\Desktop\Project\Face_Recognition_System\Images\icons8-email-24.png')
+        img3 = Image.open(r'Face_Recognition_System\Images\icons8-email-24.png')
         img3 = img3.resize((20, 20), Image.LANCZOS)
         self.photo_img3 = ImageTk.PhotoImage(img3)
         my_label4 = Label(self.root, image=self.photo_img3)
@@ -114,13 +114,13 @@ class Register:
         my_label5 = Label(self.root,text="Password",width=10,height=1,bg='#F5F5DC',fg='#041c3e',font=('Microsoft YaHei',12,"bold"))
         my_label5.place(x=510,y=340)
         
-        img4 = Image.open(r'C:\Users\hp\OneDrive\Desktop\Project\Face_Recognition_System\Images\icons8-password-48.png')
+        img4 = Image.open(r'Face_Recognition_System\Images\icons8-password-48.png')
         img4 = img4.resize((25, 25), Image.LANCZOS)
         self.photo_img4 = ImageTk.PhotoImage(img4)
         my_label5 = Label(self.root, image=self.photo_img4)
         my_label5.place(x=770, y=370, width=25, height=25)
 
-        email= Entry(self.root,width=25,fg='#041c3e',border=0,bg='#F5F5DC',font=('Microsoft YaHei',12),textvariable=self.var_Password)
+        email= Entry(self.root,width=25,fg='#041c3e',border=0,bg='#F5F5DC',font=('Microsoft YaHei',12),show='*',textvariable=self.var_Password)
         email.place(x=525, y=370)
         
 
@@ -132,13 +132,13 @@ class Register:
         my_label6 = Label(self.root,text="Confirm Password",width=20,height=1,bg='#F5F5DC',fg='#041c3e',font=('Microsoft YaHei',12,"bold"))
         my_label6.place(x=190,y=430)
         
-        img5 = Image.open(r'C:\Users\hp\OneDrive\Desktop\Project\Face_Recognition_System\Images\icons8-password-48.png')
+        img5 = Image.open(r'Face_Recognition_System\Images\icons8-password-48.png')
         img5 = img5.resize((25, 25), Image.LANCZOS)
         self.photo_img5 = ImageTk.PhotoImage(img5)
         my_label6 = Label(self.root, image=self.photo_img5)
         my_label6.place(x=460, y=465, width=25, height=25)
 
-        email= Entry(self.root,width=25,fg='#041c3e',border=0,bg='#F5F5DC',font=('Microsoft YaHei',12),textvariable=self.var_ConfirmPassword)
+        email= Entry(self.root,width=25,fg='#041c3e',border=0,bg='#F5F5DC',font=('Microsoft YaHei',12),show='*',textvariable=self.var_ConfirmPassword)
         email.place(x=220, y=465)
         
 
@@ -200,7 +200,7 @@ class Register:
             messagebox.showerror("Error","Confirm Password not matched",parent=self.root)
         else:
             try:
-                conn=mysql.connector.connect(host="localhost",username="root",password="T#9758@qlph",database="face_recognition")
+                conn=mysql.connector.connect(host="localhost",username="root",password="sHj@6378#jw",database="face_recognition")
                 my_cursor=conn.cursor()
                 my_cursor.execute("insert into register values(%s,%s,%s,%s,%s)",(
                                                                                

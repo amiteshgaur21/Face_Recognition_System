@@ -34,7 +34,7 @@ class Forgot:
 
         # ================= Background Image ======================
          
-        Forgot_img = Image.open(r'C:\Users\hp\OneDrive\Desktop\Project\Face_Recognition_System\Images\ph4.png')
+        Forgot_img = Image.open(r'Face_Recognition_System\Images\ph4.png')
         Forgot_img = Forgot_img.resize((w, h), Image.LANCZOS)
         self.Forgot_photo_img = ImageTk.PhotoImage(Forgot_img)
         my_label = Label(self.root, image=self.Forgot_photo_img)
@@ -57,7 +57,7 @@ class Forgot:
         my_label2 = Label(self.root,text="Email",width=5,height=1,bg='#F5F5DC',fg='#041c3e',font=('Microsoft YaHei',12,"bold"))
         my_label2.place(x=150,y=200)
         
-        Forgot_img1 = Image.open(r'C:\Users\hp\OneDrive\Desktop\Project\Face_Recognition_System\Images\icons8-email-24.png')
+        Forgot_img1 = Image.open(r'Face_Recognition_System\Images\icons8-email-24.png')
         Forgot_img1 = Forgot_img1.resize((20, 20), Image.LANCZOS)
         self.Forgot_photo_img1 = ImageTk.PhotoImage(Forgot_img1)
         my_label2 = Label(self.root, image=self.Forgot_photo_img1)
@@ -77,14 +77,14 @@ class Forgot:
         my_label3 = Label(self.root,text=" New Password",width=15,height=1,bg='#F5F5DC',fg='#041c3e',font=('Microsoft YaHei',12,"bold"))
         my_label3.place(x=140,y=280)
         
-        Forgot_img2 = Image.open(r'C:\Users\hp\OneDrive\Desktop\Project\Face_Recognition_System\Images\icons8-password-48.png')
+        Forgot_img2 = Image.open(r'Face_Recognition_System\Images\icons8-password-48.png')
         Forgot_img2 = Forgot_img2.resize((30, 30), Image.LANCZOS)
         self.Forgot_photo_img2 = ImageTk.PhotoImage(Forgot_img2)
         my_label3 = Label(self.root, image=self.Forgot_photo_img2)
         my_label3.image=self.Forgot_photo_img2
         my_label3.place(x=433, y=305, width=30, height=30)
 
-        Password= Entry(self.root,width=30,fg='#041c3e',border=0,bg='#F5F5DC',font=('Microsoft YaHei',12),textvariable=self.var_Password)
+        Password= Entry(self.root,width=30,fg='#041c3e',border=0,bg='#F5F5DC',font=('Microsoft YaHei',12),show='*',textvariable=self.var_Password)
         Password.place(x=155, y=310)
         
         f1=Frame(self.root,width=311,height=2,bg='#041c3e')
@@ -96,14 +96,14 @@ class Forgot:
         my_label4 = Label(self.root,text="Confirm New Password",width=25,height=1,bg='#F5F5DC',fg='#041c3e',font=('Microsoft YaHei',12,"bold"))
         my_label4.place(x=130,y=370)
         
-        Forgot_img3 = Image.open(r'C:\Users\hp\OneDrive\Desktop\Project\Face_Recognition_System\Images\icons8-password-48.png')
+        Forgot_img3 = Image.open(r'Face_Recognition_System\Images\icons8-password-48.png')
         Forgot_img3 = Forgot_img3.resize((30, 30), Image.LANCZOS)
         self.Forgot_photo_img3 = ImageTk.PhotoImage(Forgot_img3)
         my_label4 = Label(self.root, image=self.Forgot_photo_img3)
         my_label4.image=self.Forgot_photo_img3
         my_label4.place(x=433, y=390, width=30, height=30)
 
-        comfirm_password = Entry(self.root,width=30,fg='#041c3e',border=0,bg='#F5F5DC',font=('Microsoft YaHei',12),textvariable=self.var_ConfirmPassword)
+        comfirm_password = Entry(self.root,width=30,fg='#041c3e',border=0,bg='#F5F5DC',font=('Microsoft YaHei',12),show='*',textvariable=self.var_ConfirmPassword)
         comfirm_password.place(x=155, y=400)
         
         f2=Frame(self.root,width=311,height=2,bg='#041c3e')
@@ -138,7 +138,7 @@ class Forgot:
             try:
                 Update=messagebox.askyesno("Update","Do you want to update the Password",parent=self.root)
                 if Update>0:
-                 conn=mysql.connector.connect(host="localhost",username="root",password="T#9758@qlph",database="face_recognition")
+                 conn=mysql.connector.connect(host="localhost",username="root",password="sHj@6378#jw",database="face_recognition")
                  my_cursor=conn.cursor()
                  my_cursor.execute("update register set Password=%s,ConfirmPassword=%s where Email=%s",(
                                                                                                        self.var_Password.get(),

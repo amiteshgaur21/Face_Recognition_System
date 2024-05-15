@@ -25,7 +25,7 @@ class landing_page:
 
         # ================= Background Image ======================
          
-        img = Image.open(r'C:\Users\hp\OneDrive\Desktop\Project\Face_Recognition_System\Images\ph.png')
+        img = Image.open(r'Face_Recognition_System\Images\ph.png')
         img = img.resize((w, h), Image.LANCZOS)
         self.photo_img = ImageTk.PhotoImage(img)
         my_label = Label(self.root, image=self.photo_img)
