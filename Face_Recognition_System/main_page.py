@@ -169,7 +169,7 @@ class Face_Recognition_System:
 
     def Train_dataset(self):
         self.new_window=ttk.Toplevel(self.root)
-        self.app=dataset(self.new_window) 
+        self.app=dataset(self.new_window)
 
     def Face_Scan(self):
         self.new_window=ttk.Toplevel(self.root)

@@ -115,6 +115,7 @@ class dataset:
         clf.train(faces,ids)
         clf.write("Face_Recognition_System/classifier.xml")
         cv2.destroyAllWindows()
+        self.root.destroy()
         messagebox.showinfo("Result","Training dataset completed !!")
 
         

@@ -869,9 +869,9 @@ class student:
                 else:
                     if not Delete:
                         return
+                self.fetch_data()
                 messagebox.showinfo("Success","Student Details Successfully Deleted",parent=self.root)
                 conn.commit()
-                self.fetch_data()
                 conn.close()
             except Exception as es:
                 messagebox.showerror("Error",f"Due To : {str(es)}",parent=self.root)
