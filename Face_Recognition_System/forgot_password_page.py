@@ -34,7 +34,7 @@ class Forgot:
 
         # ================= Background Image ======================
          
-        Forgot_img = Image.open(r'Face_Recognition_System\Images\ph4.png')
+        Forgot_img = Image.open(r'Images\ph4.png')
         Forgot_img = Forgot_img.resize((w, h), Image.LANCZOS)
         self.Forgot_photo_img = ImageTk.PhotoImage(Forgot_img)
         my_label = Label(self.root, image=self.Forgot_photo_img)
@@ -57,7 +57,7 @@ class Forgot:
         my_label2 = Label(self.root,text="Email",width=5,height=1,bg='#F5F5DC',fg='#041c3e',font=('Microsoft YaHei',12,"bold"))
         my_label2.place(x=150,y=200)
         
-        Forgot_img1 = Image.open(r'Face_Recognition_System\Images\icons8-email-24.png')
+        Forgot_img1 = Image.open(r'Images\icons8-email-24.png')
         Forgot_img1 = Forgot_img1.resize((20, 20), Image.LANCZOS)
         self.Forgot_photo_img1 = ImageTk.PhotoImage(Forgot_img1)
         my_label2 = Label(self.root, image=self.Forgot_photo_img1)
@@ -77,7 +77,7 @@ class Forgot:
         my_label3 = Label(self.root,text=" New Password",width=15,height=1,bg='#F5F5DC',fg='#041c3e',font=('Microsoft YaHei',12,"bold"))
         my_label3.place(x=140,y=280)
         
-        Forgot_img2 = Image.open(r'Face_Recognition_System\Images\icons8-password-48.png')
+        Forgot_img2 = Image.open(r'Images\icons8-password-48.png')
         Forgot_img2 = Forgot_img2.resize((30, 30), Image.LANCZOS)
         self.Forgot_photo_img2 = ImageTk.PhotoImage(Forgot_img2)
         my_label3 = Label(self.root, image=self.Forgot_photo_img2)
@@ -96,7 +96,7 @@ class Forgot:
         my_label4 = Label(self.root,text="Confirm New Password",width=25,height=1,bg='#F5F5DC',fg='#041c3e',font=('Microsoft YaHei',12,"bold"))
         my_label4.place(x=130,y=370)
         
-        Forgot_img3 = Image.open(r'Face_Recognition_System\Images\icons8-password-48.png')
+        Forgot_img3 = Image.open(r'Images\icons8-password-48.png')
         Forgot_img3 = Forgot_img3.resize((30, 30), Image.LANCZOS)
         self.Forgot_photo_img3 = ImageTk.PhotoImage(Forgot_img3)
         my_label4 = Label(self.root, image=self.Forgot_photo_img3)

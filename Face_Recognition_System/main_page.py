@@ -33,7 +33,7 @@ class Face_Recognition_System:
         
         # =========================== Bg Image ==========================
 
-        img = Image.open('Face_Recognition_System/Images/digital-human-face-artificial-intelligence-ai-dispersion-dissolve-disintegration-d-render_628331-178.png')
+        img = Image.open('Images/digital-human-face-artificial-intelligence-ai-dispersion-dissolve-disintegration-d-render_628331-178.png')
         img = img.resize((1500, 750), Image.LANCZOS)
         self.photo_img = ImageTk.PhotoImage(img)
         first_lb = Label(self.root, image=self.photo_img)
@@ -52,7 +52,7 @@ class Face_Recognition_System:
 
         # ======================================= Student Details =============================================
 
-        img2=Image.open('Face_Recognition_System/Images/college project-pana.png')
+        img2=Image.open('Images/college project-pana.png')
         img2=img2.resize((150,150),Image.LANCZOS)
         self.photo_img2=ImageTk.PhotoImage(img2)  
 
@@ -67,7 +67,7 @@ class Face_Recognition_System:
 
         # =========================================== Face Detection =====================================
 
-        img3=Image.open('Face_Recognition_System/Images/imageedit_18_9022603448.jpg')
+        img3=Image.open('Images/imageedit_18_9022603448.jpg')
         img3=img3.resize((150,150),Image.LANCZOS)
         self.photo_img3=ImageTk.PhotoImage(img3)
 
@@ -81,7 +81,7 @@ class Face_Recognition_System:
 
         # =============================================== Attendance ===================================
 
-        img4=Image.open('Face_Recognition_System/Images/Confirmed attendance-pana.png')
+        img4=Image.open('Images/Confirmed attendance-pana.png')
         img4=img4.resize((150,150),Image.LANCZOS)
         self.photo_img4=ImageTk.PhotoImage(img4)
 
@@ -94,7 +94,7 @@ class Face_Recognition_System:
 
         # ========================================== help ===========================================
 
-        img5=Image.open('Face_Recognition_System/Images/imageedit_32_3622200823.jpg')
+        img5=Image.open('Images/imageedit_32_3622200823.jpg')
         img5=img5.resize((150,150),Image.LANCZOS)
         self.photo_img5=ImageTk.PhotoImage(img5)
 
@@ -106,7 +106,7 @@ class Face_Recognition_System:
 
          # ======================================== Train Data ======================================
 
-        img6=Image.open('Face_Recognition_System/Images/Data analysis-amico.png')
+        img6=Image.open('Images/Data analysis-amico.png')
         img6=img6.resize((150,150),Image.LANCZOS)
         self.photo_img6=ImageTk.PhotoImage(img6)
 
@@ -119,7 +119,7 @@ class Face_Recognition_System:
 
          # ======================================== Photos =========================================
 
-        img7=Image.open('Face_Recognition_System/Images/Images-rafiki.png')
+        img7=Image.open('Images/Images-rafiki.png')
         img7=img7.resize((150,150),Image.LANCZOS)
         self.photo_img7=ImageTk.PhotoImage(img7)
 
@@ -131,7 +131,7 @@ class Face_Recognition_System:
 
          # ====================================== Developer ========================================
 
-        img8=Image.open('Face_Recognition_System/Images/Video game developer-bro.png')
+        img8=Image.open('Images/Video game developer-bro.png')
         img8=img8.resize((150,150),Image.LANCZOS)
         self.photo_img8=ImageTk.PhotoImage(img8)
 
@@ -147,7 +147,7 @@ class Face_Recognition_System:
 
          # ===================================== Log Out ====================================
 
-        img9=Image.open('Face_Recognition_System/Images/imageedit_25_5473229917.jpg')
+        img9=Image.open('Images/imageedit_25_5473229917.jpg')
         img9=img9.resize((150,150),Image.LANCZOS)
         self.photo_img9=ImageTk.PhotoImage(img9)
 
@@ -164,7 +164,7 @@ class Face_Recognition_System:
         self.app=student(self.new_window) 
     
     def open_img(self):
-        os.startfile("Face_Recognition_System\data")
+        os.startfile("data")
     
 
     def Train_dataset(self):

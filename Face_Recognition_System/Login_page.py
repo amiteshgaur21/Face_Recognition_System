@@ -39,7 +39,7 @@ class Login:
 
         # ================= Background Image ======================
          
-        Login_img = Image.open(r'Face_Recognition_System\Images\ph4.png')
+        Login_img = Image.open(r'Images\ph4.png')
         Login_img = Login_img.resize((w, h), Image.LANCZOS)
         self.Login_photo_img = ImageTk.PhotoImage(Login_img)
         my_label = Label(self.root, image=self.Login_photo_img)
@@ -62,7 +62,7 @@ class Login:
         my_label2 = Label(self.root,text="Email",width=5,height=1,bg='#F5F5DC',fg='#041c3e',font=('Microsoft YaHei',12,"bold"))
         my_label2.place(x=350,y=250)
 
-        Login_img1 = Image.open(r'Face_Recognition_System\Images\icons8-email-24.png')
+        Login_img1 = Image.open(r'Images\icons8-email-24.png')
         Login_img1 = Login_img1.resize((20, 20), Image.LANCZOS)
         self.Login_photo_img1 = ImageTk.PhotoImage(Login_img1)
         my_label3 = Label(self.root, image=self.Login_photo_img1)
@@ -81,7 +81,7 @@ class Login:
         my_label2.place(x=345,y=340)
 
           
-        Login_img2 = Image.open(r'Face_Recognition_System\Images\icons8-password-48.png')
+        Login_img2 = Image.open(r'Images\icons8-password-48.png')
         Login_img2 = Login_img2.resize((25, 25), Image.LANCZOS)
         self.Login_photo_img2 = ImageTk.PhotoImage(Login_img2)
         my_label3 = Label(self.root, image=self.Login_photo_img2)
@@ -177,9 +177,10 @@ class Login:
                 else:
                     self.var_email.set("")
                     self.var_password.set("")
-                    
+
                     self.new_window=Toplevel(self.root)
                     self.app=Face_Recognition_System(self.new_window)
+                    # self.root.destroy()
 
 
                 conn.commit()

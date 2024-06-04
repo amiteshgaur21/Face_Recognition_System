@@ -39,7 +39,7 @@ class Face_Recognition:
 
         # =========================== Bg Image ==========================
 
-        img = Image.open(r'Face_Recognition_System\Images\44703347.jpg')
+        img = Image.open(r'Images\44703347.jpg')
         img = img.resize((1385, 750), Image.LANCZOS)
         self.photo_img = ImageTk.PhotoImage(img)
         first_lb = Label(self.root, image=self.photo_img)
@@ -54,7 +54,7 @@ class Face_Recognition:
 
          # =========================== Second Image ==========================
 
-        img1 = Image.open(r'Face_Recognition_System\Images\18423154.jpg')
+        img1 = Image.open(r'Images\18423154.jpg')
         img1= img1.resize((395, 495), Image.LANCZOS)
         self.photo_img1 = ImageTk.PhotoImage(img1)
         first_lb1 = Label(my_frame, image=self.photo_img1)
@@ -71,7 +71,7 @@ class Face_Recognition:
      # ============================================== Attendance =============================================
 
     def mark_attendance(self,i,n,s,r,d):
-        with open("Face_Recognition_System/attendance.csv","r+",newline="\n") as f:
+        with open("attendance.csv","r+",newline="\n") as f:
             myDataList=f.readlines()
             name_list=[]
             for line in myDataList:
@@ -146,15 +146,16 @@ class Face_Recognition:
             coord = draw_boundary(img,faceCascade,1.1,10,(255,25,255),"Face",clf)
             return img
 
-        faceCascade=cv2.CascadeClassifier(r"Face_Recognition_System\haarcascade_frontalface_default.xml")
+        faceCascade=cv2.CascadeClassifier(r"haarcascade_frontalface_default.xml")
         clf=cv2.face.LBPHFaceRecognizer_create()
-        clf.read("Face_Recognition_System/classifier.xml")
+        clf.read("classifier.xml")
 
         video_cap=cv2.VideoCapture(0)
 
         while True:
             ret,img=video_cap.read()
             img=recognize(img,clf,faceCascade)
+            # print('Hello')
             cv2.imshow("Welcome to Face Recognition",img)
 
             if cv2.waitKey(1) == 13:

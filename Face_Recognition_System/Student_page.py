@@ -47,7 +47,7 @@ class student:
         
         # =========================== Bg Image ==========================
 
-        bg_img = Image.open(r'Face_Recognition_System\Images\GettyImages-1138740533-1.jpg')
+        bg_img = Image.open(r'Images\GettyImages-1138740533-1.jpg')
         bg_img = bg_img.resize((1500, 750), Image.LANCZOS)
         self.bg_photo = ImageTk.PhotoImage(bg_img)
         my_label = Label(self.root, image=self.bg_photo)
@@ -88,7 +88,7 @@ class student:
 
         # ====================== Left Frame Image ===================
 
-        img_left = Image.open(r'Face_Recognition_System\Images\group-of-students-holding-books-and-laptop-university-or-college-students-reading-books-talking-flat-illustration-vector.jpg')
+        img_left = Image.open(r'Images\group-of-students-holding-books-and-laptop-university-or-college-students-reading-books-talking-flat-illustration-vector.jpg')
         img_left = img_left.resize((635,150), Image.LANCZOS)
         self.photo_img_left = ImageTk.PhotoImage(img_left)
         left_lb = Label(Left_frame, image=self.photo_img_left,bd=2)
@@ -557,7 +557,7 @@ class student:
 
         # ========================= Right Image ======================
 
-        img_right = Image.open(r'Face_Recognition_System\Images\imageedit_4_9080682063.jpg')
+        img_right = Image.open(r'Images\imageedit_4_9080682063.jpg')
         img_right = img_right.resize((660,150), Image.LANCZOS)
         self.photo_img_right = ImageTk.PhotoImage(img_right)
         right_lb = Label(Right_frame, image=self.photo_img_right,bd=2)
@@ -950,7 +950,7 @@ class student:
                 self.Reset_data()
                 conn.close()
 
-                face_classifier=cv2.CascadeClassifier(r"Face_Recognition_System\haarcascade_frontalface_default.xml")
+                face_classifier=cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
         
                 def face_scanning(img):     
                     gray=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
@@ -972,17 +972,20 @@ class student:
                        img_id+=1
                        my_face=cv2.resize(face_scanning(face_frame),(450,450))
                        my_face=cv2.cvtColor(my_face,cv2.COLOR_BGR2GRAY)
-                       file_path="Face_Recognition_System/data/user."+str(id)+"."+str(img_id)+".jpg"
+                       file_path="data/user."+str(id)+"."+str(img_id)+".jpg"
 
                        cv2.imwrite(file_path,my_face)
                        cv2.putText(my_face,str(img_id),(50,50),cv2.FONT_HERSHEY_COMPLEX,2,(0,255,0),2)
                        cv2.imshow("face scanning",my_face)
 
-                     if cv2.waitKey(1)==13 or int(img_id)==200:
+                     if cv2.waitKey(1)==13 or int(img_id)==50:
                         break
                 cap.release()
                 cv2.destroyAllWindows()
-                messagebox.showinfo("Result","Face Scanning Compeleted Successfully")
+                # self.root.destroy()
+                # self.new_window=Toplevel(self.root)
+                # self.app=student(self.new_window)
+                messagebox.showinfo("Result","Face Scanning Compeleted Successfully",parent=self.root)
 
             except Exception as es:
                 messagebox.showerror("Error",f"Due To : {str(es)}",parent=self.root)

@@ -24,7 +24,7 @@ class Developer:
 
         # =========================== Bg Image ==========================
 
-        img = Image.open(r'Face_Recognition_System\Images\developer.png')
+        img = Image.open(r'Images\developer.png')
         img = img.resize((1385, 750), Image.LANCZOS)
         self.photo_img = ImageTk.PhotoImage(img)
         first_lb = Label(self.root, image=self.photo_img)

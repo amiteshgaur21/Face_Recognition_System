@@ -29,7 +29,7 @@ class dataset:
         
         # =========================== Bg Image ==========================
 
-        img = Image.open(r'Face_Recognition_System\Images\18b7acd6-6cdf-4f25-ab0f-845a6e59bd2c.jpg')
+        img = Image.open(r'Images\18b7acd6-6cdf-4f25-ab0f-845a6e59bd2c.jpg')
         img = img.resize((1400, 750), Image.LANCZOS)
         self.photo_img = ImageTk.PhotoImage(img)
         first_lb = Label(self.root, image=self.photo_img)
@@ -47,7 +47,7 @@ class dataset:
 
         # =========================== First Image ==========================
 
-        img1 = Image.open(r'Face_Recognition_System\Images\face-600x900.png')
+        img1 = Image.open(r'Images\face-600x900.png')
         img1 = img1.resize((250, 200), Image.LANCZOS)
         self.photo_img1 = ImageTk.PhotoImage(img1)
         first_lb1 = Label(my_frame, image=self.photo_img1)
@@ -55,7 +55,7 @@ class dataset:
 
         # =========================== Second Image ==========================
 
-        img2 = Image.open(r'Face_Recognition_System\Images\istockphoto-1139859542-612x612.jpg')
+        img2 = Image.open(r'Images\istockphoto-1139859542-612x612.jpg')
         img2= img2.resize((250, 200), Image.LANCZOS)
         self.photo_img2 = ImageTk.PhotoImage(img2)
         first_lb2 = Label(my_frame, image=self.photo_img2)
@@ -63,7 +63,7 @@ class dataset:
 
         # =========================== Third Image ==========================
        
-        img3 = Image.open(r'Face_Recognition_System\Images\Learn-Facial-Recognition-scaled.jpg')
+        img3 = Image.open(r'Images\Learn-Facial-Recognition-scaled.jpg')
         img3 = img3.resize((250, 200), Image.LANCZOS)
         self.photo_img3 = ImageTk.PhotoImage(img3)
         first_lb3 = Label(my_frame, image=self.photo_img3)
@@ -71,7 +71,7 @@ class dataset:
 
          # =========================== Fourth Image ==========================
        
-        img4 = Image.open(r'Face_Recognition_System\Images\istockphoto-1248505534-612x612.jpg')
+        img4 = Image.open(r'Images\istockphoto-1248505534-612x612.jpg')
         img4 = img4.resize((250, 200), Image.LANCZOS)
         self.photo_img4 = ImageTk.PhotoImage(img4)
         first_lb4 = Label(my_frame, image=self.photo_img4)
@@ -90,7 +90,7 @@ class dataset:
 # =============================== fuction ===============================
 
     def train_classifier(self):
-        data_dir=("Face_Recognition_System/data")
+        data_dir=("data")
         path=[os.path.join(data_dir,file) for file in os.listdir(data_dir)]
 
 
@@ -113,10 +113,10 @@ class dataset:
 
         clf=cv2.face.LBPHFaceRecognizer_create()
         clf.train(faces,ids)
-        clf.write("Face_Recognition_System/classifier.xml")
+        clf.write("classifier.xml")
         cv2.destroyAllWindows()
-        self.root.destroy()
-        messagebox.showinfo("Result","Training dataset completed !!")
+        # self.root.destroy()
+        messagebox.showinfo("Result","Training dataset completed !!",parent=self.root)
 
         
 

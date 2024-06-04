@@ -46,7 +46,7 @@ class attendance:
 
          # =========================== Bg Image ==========================
 
-        bg_img = Image.open(r'Face_Recognition_System\Images\GettyImages-1138740533-1.jpg')
+        bg_img = Image.open(r'Images\GettyImages-1138740533-1.jpg')
         bg_img = bg_img.resize((1500, 750), Image.LANCZOS)
         self.bg_photo = ImageTk.PhotoImage(bg_img)
         my_label = Label(self.root, image=self.bg_photo)
@@ -88,7 +88,7 @@ class attendance:
 
           # ====================== Left Frame Image ===================
 
-        img_left = Image.open(r'Face_Recognition_System\Images\group-of-students-holding-books-and-laptop-university-or-college-students-reading-books-talking-flat-illustration-vector.jpg')
+        img_left = Image.open(r'Images\group-of-students-holding-books-and-laptop-university-or-college-students-reading-books-talking-flat-illustration-vector.jpg')
         img_left = img_left.resize((635,150), Image.LANCZOS)
         self.photo_img_left = ImageTk.PhotoImage(img_left)
         left_lb = Label(Left_frame, image=self.photo_img_left,bd=2)
@@ -365,7 +365,7 @@ class attendance:
 
         # ================================================ Right Image =========================================
 
-        img_right = Image.open(r'Face_Recognition_System\Images\imageedit_4_9080682063.jpg')
+        img_right = Image.open(r'Images\imageedit_4_9080682063.jpg')
         img_right = img_right.resize((660,150), Image.LANCZOS)
         self.photo_img_right = ImageTk.PhotoImage(img_right)
         right_lb = Label(Right_frame, image=self.photo_img_right,bd=2)
@@ -463,7 +463,7 @@ class attendance:
                 exp_write=csv.writer(myfile,delimiter=",")
                 for i in mydata:
                     exp_write.writerow(i)
-                messagebox.showinfo("Success","Your Data Exported to "+os.path.basename(fln)+" Successfully !!")
+                messagebox.showinfo("Success","Your Data Exported to "+os.path.basename(fln)+" Successfully !!",parent=self.root)
         except Exception as es:
                 messagebox.showerror("Error",f"Due To : {str(es)}",parent=self.root)
 
@@ -510,7 +510,7 @@ class attendance:
     def update_csv(self):
          try:
             # Read CSV data into a list of lists
-            with open('Face_Recognition_System/attendance.csv', 'r', newline='') as csvfile:
+            with open('attendance.csv', 'r', newline='') as csvfile:
                 reader = csv.reader(csvfile)
                 csv_data = list(reader)
 
@@ -522,16 +522,16 @@ class attendance:
             #     raise IndexError("Invalid row or column number!")
 
             # Update the specified value
-            csv_data[2][7] = self.var_attendance.get()
+            csv_data[0][7] = self.var_attendance.get()
 
             # Write updated data back to the CSV file
-            with open('Face_Recognition_System/attendance.csv', 'w', newline='') as csvfile:
+            with open('attendance.csv', 'w', newline='') as csvfile:
                 writer = csv.writer(csvfile)
                 writer.writerows(csv_data)
                 self.fetchdata(csv_data)
             
             # Display success message
-            messagebox.showinfo("Success","Your Data is Updated Successfully !!")
+            messagebox.showinfo("Success","Your Data is Updated Successfully !!",parent=self.root)
          except Exception as e:
               
               # Display error message
